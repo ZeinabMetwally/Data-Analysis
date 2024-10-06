@@ -5,8 +5,16 @@ import streamlit as st
 
 @st.cache_data
 def load_data():
-    return pd.read_csv('/workspaces/Streamlit-Task/fifa_eda.csv')
-df=load_data()
+    uploaded_file = st.file_uploader("Choose a CSV file", type="csv")
+    if uploaded_file is not None:
+        df = pd.read_csv(uploaded_file)
+        return df
+    else:
+        st.error("Please upload a CSV file")
+
+df = load_data()
+if df is not None:
+    st.write(df.head())
 
 st.header("Explore the Fifa Data 2018")
 # st.sidebar.header('Fifa Players and Clubs')
