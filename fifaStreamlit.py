@@ -5,7 +5,7 @@ import streamlit as st
 
 @st.cache_data
 def load_data():
-    return pd.read_csv('C:\\Users\\DELL\\Downloads\\fifa_eda.csv')
+    return pd.read_csv('/workspaces/Streamlit-Task/fifa_eda.csv')
 df=load_data()
 
 st.header("Explore the Fifa Data 2018")
