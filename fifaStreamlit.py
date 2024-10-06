@@ -3,13 +3,15 @@ import numpy as np
 import plotly.express as px
 import streamlit as st
 
-@st.cache_data(experimental_allow_widgets=True)
-def load_data():
-    uploaded_file = st.file_uploader("Choose a CSV file", type="csv")
-    if uploaded_file is not None:
-        return pd.read_csv(uploaded_file)
+@st.cache_data
+def load_data(file_path):
+    # Load the CSV file from the specified file path
+    return pd.read_csv(file_path)
 
-df = load_data()
+# Replace 'file_path' with the actual path to your CSV file
+file_path = "fifa_eda.csv"
+df = load_data(file_path)
+
 if df is not None:
     st.write(df.head())
 
