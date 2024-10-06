@@ -12,9 +12,6 @@ def load_data(file_path):
 file_path = "fifa_eda.csv"
 df = load_data(file_path)
 
-if df is not None:
-    st.write(df.head())
-
 st.header("Explore the Fifa Data 2018")
 # st.sidebar.header('Fifa Players and Clubs')
 st.sidebar.markdown("<h1 style='color: Red;'>Fifa Players and Clubs</h1>", unsafe_allow_html=True)
