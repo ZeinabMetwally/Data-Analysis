@@ -3,14 +3,11 @@ import numpy as np
 import plotly.express as px
 import streamlit as st
 
-@st.cache_data
+@st.cache_data(experimental_allow_widgets=True)
 def load_data():
     uploaded_file = st.file_uploader("Choose a CSV file", type="csv")
     if uploaded_file is not None:
-        df = pd.read_csv(uploaded_file)
-        return df
-    else:
-        st.error("Please upload a CSV file")
+        return pd.read_csv(uploaded_file)
 
 df = load_data()
 if df is not None:
